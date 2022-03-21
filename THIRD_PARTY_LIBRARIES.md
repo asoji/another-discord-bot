@@ -1,4 +1,4 @@
-# Third Party Licenses
+# Third Party Libraries
 This project uses the following third party libraries: 
  - [D++](https://github.com/brainboxdotcc/DPP)
  - [toml11](https://github.com/ToruNiina/toml11)
