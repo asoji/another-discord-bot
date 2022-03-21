@@ -1,5 +1,21 @@
 [description]
 howdy = "Say Howdy!"
+testModal = "this is jsut a test modal mklgrejg"
 
 [output]
-howdy = "shut the fuck up you dumb nerd"
+howdy = "Howdy nerd, hope you're having a pretty okay day."
+
+# ------------------------- #
+#   MODAL STUFF DOWN HERE   #
+# ------------------------- #
+
+[modals]
+    [modals.test_modal]
+    title = "Test Modal"
+        [modals.test_modal.component1]
+        label = "What is your name"
+        placeholder = "John Doe"
+
+        [modals.test_modal.component2]
+        label = "How are you doing"
+        placeholder = "Doing pretty okay..."
