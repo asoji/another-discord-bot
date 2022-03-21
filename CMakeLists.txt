@@ -15,7 +15,8 @@ file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/src/config/ DESTINATION ${CMAKE_CURRENT_BI
 find_package(toml11 CONFIG REQUIRED)
 
 add_executable(another-discord-bot
-        src/main.cpp)
+        src/main.cpp
+        src/main.hpp)
 
 target_link_libraries(another-discord-bot
         dpp
