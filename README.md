@@ -5,7 +5,6 @@ which is crying on the ground right now. i dont aim to replace yiski with this, 
 ## License
 
 This project is licensed under the [MIT License](LICENSE)
-- D++ however, is licensed under Apache 2.0, it's license can also be found [here](LICENSE)
-## Libraries being used
-- [D++](https://github.com/brainboxdotcc/DPP)
-- [toml11](https://github.com/ToruNiina/toml11)
+
+## Third Party Libraries
+This application contains many other libraries that may not share the same license as this application. Thus, a copy of each license has been [included](THIRD_PARTY_LIBRARIES.md) to comply with licensing requirements.
