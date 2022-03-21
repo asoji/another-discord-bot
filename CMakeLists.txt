@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 project(another-discord-bot
-        VERSION 1.0
+        VERSION 0.1.0
         DESCRIPTION "Just another discord bot by aubrey, this won't be for any sort of final release"
         LANGUAGES CXX)
 
@@ -10,6 +10,7 @@ add_subdirectory(libs/dpp)
 
 set (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/src/config/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/config/)
 
 find_package(toml11 CONFIG REQUIRED)
 

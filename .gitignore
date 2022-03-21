@@ -396,7 +396,7 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-config.toml
+src/config/config.toml
 
 cmake-build-debug-visual-studio/
-config.toml
+src/config/config.toml
