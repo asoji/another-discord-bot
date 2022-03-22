@@ -11,25 +11,27 @@ int main() {
 
     bot.on_log(dpp::utility::cout_logger());
 
-    bot.on_ready([&bot](const dpp::ready_t event){
+    bot.on_ready([&bot](const dpp::ready_t event) {
         if (dpp::run_once<struct register_bot_commands>()) {
             bot.guild_command_create(dpp::slashcommand("howdy", howdyDesc, bot.me.id), guildID);
-            bot.guild_command_create(dpp::slashcommand("dialog", testModalDesc, bot.me.id), guildID);
+            bot.guild_command_create(dpp::slashcommand("testmodal", testModalDesc, bot.me.id), guildID);
+            bot.guild_command_create(dpp::slashcommand("nubert", nubertGodModalDesc, bot.me.id), guildID);
+
         }
     });
 
-    bot.on_interaction_create([](const dpp::interaction_create_t& event){
+    bot.on_interaction_create([](const dpp::interaction_create_t &event) {
         if (event.command.get_command_name() == "howdy") {
             event.reply(howdyOutput);
         }
 
-        if (event.command.get_command_name() == "dialog") {
-            dpp::interaction_modal_response testModal("test_modal", testModalTitle);
+        if (event.command.get_command_name() == "testmodal") {
+            dpp::interaction_modal_response testModal("testmodal", testModalTitle);
 
             testModal.add_component(
                     dpp::component().
                             set_label(testModalComponent1Label).
-                            set_id("field_id").
+                            set_id("testModalComponent1").
                             set_type(dpp::cot_text).
                             set_placeholder(testModalComponent1Placeholder).
                             set_min_length(1).
@@ -41,8 +43,8 @@ int main() {
             testModal.add_component(
                     dpp::component().
                             set_label(testModalComponent2Label).
-                            set_id("field_id_2").
-                            set_type(dpp::cot_selectmenu).
+                            set_id("testModalComponent2").
+                            set_type(dpp::cot_text).
                             set_placeholder(testModalComponent2Placeholder).
                             set_min_length(1).
                             set_max_length(2000).
@@ -51,16 +53,52 @@ int main() {
 
             event.dialog(testModal);
         }
+
+        if (event.command.get_command_name() == "nubert") {
+            dpp::interaction_modal_response nubertGodModal("nubertGod", nubertGodModalTitle);
+
+            nubertGodModal.add_component(
+                    dpp::component().
+                            set_label(nubertGodModalComponent1Label).
+                            set_id("nubertGodModalComponent1").
+                            set_type(dpp::cot_text).
+                            set_placeholder(nubertGodModalComponent1Placeholder).
+                            set_min_length(2).
+                            set_max_length(3).
+                            set_text_style(dpp::text_short));
+
+            event.dialog(nubertGodModal);
+        }
     });
 
-    bot.on_form_submit([&](const dpp::form_submit_t & event) {
-        std::string thing1 = std::get<std::string>(event.components[0].components[0].value);
-        std::string thing2 = std::get<std::string>(event.components[1].components[0].value);
-        dpp::message m;
-        m.set_content(testModalComponent1Label + ": " + thing1 + "\n"
-                        + testModalComponent2Label + ": " + thing2 + " <:wigged_nubert:943323764282781716>");
-        event.reply(m);
+    bot.on_form_submit([&](const dpp::form_submit_t &event) {
+        switch (event.custom_id) {
+            case "testmodal":
+                codegoherelol
+                break;
+            case "nubertGod":
+                codegoherelol2
+                break;
+        }
+
+        if (event.custom_id == "testmodal") {
+            std::string thing1 = std::get<std::string>(event.components[0].components[0].value);
+            std::string thing2 = std::get<std::string>(event.components[1].components[0].value);
+            dpp::message m;
+            m.set_content(testModalComponent1Label + ": " + thing1 + "\n"
+                                                + testModalComponent2Label + ": " + thing2 + " <:wigged_nubert:943323764282781716>");
+            event.reply(m);
+        }
+
+        if (event.custom_id == "nubertGod") {
+            std::string nubertthing1 = std::get<std::string>(event.components[0].components[0].value);
+
+            dpp::message nubertGodResponse;
+            nubertGodResponse.set_content(nubertGodModalComponent1Label + ": " + nubertthing1);
+            event.reply(nubertGodResponse);
+        }
     });
+
 
     bot.start(false);
 }

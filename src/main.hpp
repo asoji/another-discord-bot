@@ -25,5 +25,9 @@ const auto testModalComponent1Placeholder = toml::find<std::string>(englishFile,
 const auto testModalComponent2Label = toml::find<std::string>(englishFile, "modals", "test_modal", "component2", "label");
 const auto testModalComponent2Placeholder = toml::find<std::string>(englishFile, "modals", "test_modal", "component2", "placeholder");
 
+const auto nubertGodModalDesc = toml::find<std::string>(englishFile, "description", "nubertGod");
+const auto nubertGodModalTitle = toml::find<std::string>(englishFile, "modals", "nubertGod", "title");
+const auto nubertGodModalComponent1Label = toml::find<std::string>(englishFile, "modals", "nubertGod", "component1", "label");
+const auto nubertGodModalComponent1Placeholder = toml::find<std::string>(englishFile, "modals", "nubertGod", "component1", "placeholder");
 
 #endif //ANOTHER_DISCORD_BOT_MAIN_HPP

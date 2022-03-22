@@ -1,6 +1,7 @@
 [description]
 howdy = "Say Howdy!"
 testModal = "this is jsut a test modal mklgrejg"
+nubertGod = "answer the question"
 
 [output]
 howdy = "Howdy nerd, hope you're having a pretty okay day."
@@ -19,3 +20,9 @@ howdy = "Howdy nerd, hope you're having a pretty okay day."
         [modals.test_modal.component2]
         label = "How are you doing"
         placeholder = "Doing pretty okay..."
+
+    [modals.nubertGod]
+    title = "We're answering the real questions"
+        [modals.nubertGod.component1]
+        label = "Is Nubert God?"
+        placeholder = "You better pick Yes."
