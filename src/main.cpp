@@ -72,15 +72,6 @@ int main() {
     });
 
     bot.on_form_submit([&](const dpp::form_submit_t &event) {
-        switch (event.custom_id) {
-            case "testmodal":
-                codegoherelol
-                break;
-            case "nubertGod":
-                codegoherelol2
-                break;
-        }
-
         if (event.custom_id == "testmodal") {
             std::string thing1 = std::get<std::string>(event.components[0].components[0].value);
             std::string thing2 = std::get<std::string>(event.components[1].components[0].value);
