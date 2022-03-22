@@ -29,7 +29,7 @@ THE SOFTWARE.
 ```
 
 ## Apache License
-The following libraries use the MIT License:
+The following libraries use the Apache 2.0 License:
  - D++
 
 The fulltext license is
